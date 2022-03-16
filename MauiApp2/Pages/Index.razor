@@ -1,0 +1,22 @@
+﻿@page "/"
+
+@inject IJSRuntime jsRuntime
+
+<h1>Hello, world!</h1>
+
+Welcome to your new app.
+
+<SurveyPrompt Title="How is Blazor working for you?" />
+
+
+
+<input id="input1"/>
+
+<br />
+
+<p>I have binded the blur event in script end (Which will trigger even on focusing the component), In that event I have changed the the background color for visual effect</p>
+
+
+@code{
+    protected override async Task OnAfterRenderAsync(bool firstRender) => await jsRuntime.InvokeVoidAsync("BindEvent");
+}
